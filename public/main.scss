@@ -1,0 +1,6 @@
+@import './_variables';
+@import './mixins';
+
+.himanshu {
+  color: $blue; // Namespaced access
+}

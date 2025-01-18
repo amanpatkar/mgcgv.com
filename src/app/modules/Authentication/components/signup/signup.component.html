@@ -1,0 +1,141 @@
+<div class="super-parent">
+    <div class="left">
+
+    </div>
+    <div class="right">
+        <h3 class="text-center text-primary mt-3 mb-1">Create Account! </h3>
+        <section class="form-section d-flex flex-column align-items-center mt-4">
+            <form
+              #registerForm="ngForm"
+              (ngSubmit)="submitForm(registerForm)"
+              class="form-section d-flex flex-column align-items-center mt-4"
+            >
+              <!-- Full Name -->
+              <div class="input-group m-3 p-3 mt-0 pt-0">
+                <input
+                  required
+                  id="fullName"
+                  type="text"
+                  name="fullName"
+                  autocomplete="off"
+                  class="input w-100"
+                  [(ngModel)]="registerData.fullName"
+                  #fullNameInput="ngModel"
+                />
+                <label class="user-label">Full Name</label>
+                <div
+                  *ngIf="fullNameInput.touched && fullNameInput.invalid"
+                  class="text-danger"
+                >
+                  Full Name is required.
+                </div>
+              </div>
+          
+              <!-- Email -->
+              <div class="input-group m-3 p-3 mt-0 pt-0">
+                <input
+                  required
+                  id="email"
+                  type="email"
+                  name="email"
+                  autocomplete="off"
+                  class="input w-100"
+                  [(ngModel)]="registerData.email"
+                  #emailInput="ngModel"
+                />
+                <label class="user-label">Email</label>
+                <div
+                  *ngIf="emailInput.touched && emailInput.invalid"
+                  class="text-danger"
+                >
+                  Email is required.
+                </div>
+              </div>
+          
+              <!-- Password -->
+              <div class="input-group m-3 p-3 mt-0 pt-0">
+                <input
+                  required
+                  id="password"
+                  type="password"
+                  name="password"
+                  autocomplete="off"
+                  class="input w-100"
+                  [(ngModel)]="registerData.password"
+                  #passwordInput="ngModel"
+                />
+                <label class="user-label">Password</label>
+                <div
+                  *ngIf="passwordInput.touched && passwordInput.invalid"
+                  class="text-danger"
+                >
+                  Password is required.
+                </div>
+              </div>
+          
+              <!-- Confirm Password -->
+              <div class="input-group m-3 p-3 mt-0 pt-0">
+                <input
+                  required
+                  id="confirmPassword"
+                  type="password"
+                  name="confirmPassword"
+                  autocomplete="off"
+                  class="input w-100"
+                  [(ngModel)]="registerData.confirmPassword"
+                  #confirmPasswordInput="ngModel"
+                />
+                <label class="user-label">Confirm Password</label>
+                <div
+                  *ngIf="
+                    confirmPasswordInput.touched &&
+                    confirmPasswordInput.value !== registerData.password
+                  "
+                  class="text-danger"
+                >
+                  Passwords must match.
+                </div>
+              </div>
+          
+              <!-- Role -->
+              <div class="input-group m-3 p-3 mt-0 pt-0">
+                <select
+                  required
+                  id="role"
+                  name="role"
+                  class="input w-100"
+                  [(ngModel)]="registerData.role"
+                  #roleInput="ngModel"
+                >
+                  <option value="" disabled selected>Select Role</option>
+                  <option value="Student">Student</option>
+                  <option value="Faculty">Faculty</option>
+                  <option value="Admin">Admin</option>
+                </select>
+                <label class="userLabelSelect">Role</label>
+                <div
+                  *ngIf="roleInput.touched && roleInput.invalid"
+                  class="text-danger"
+                >
+                  Role is required.
+                </div>
+              </div>
+          
+              <!-- Submit Button -->
+              <div class="form-section d-flex flex-column align-items-center mt-4">
+                <button class="button" [disabled]="!registerForm.valid">
+                  Sign Up
+                </button>
+              </div>
+          
+              <div class="m-3">
+                <h6>
+                  Already have an account?
+                  <span class="text-primary" (click)="gotoSignIn()">Sign In</span>
+                </h6>
+              </div>
+            </form>
+          </section>
+          
+    </div>
+</div>
